@@ -120,3 +120,63 @@ public class Dev {
     }
 }
 ```
+
+# Spring Tutorial
+Like Spring Boot, Spring also manages a container where everything runs. 
+However, Spring is more rudimentary than Spring Boot. 
+What is means is that Spring requires more manual configuration to tell Spring what to manage inside the container. We have to first create a folder called resource and place it under `/src/main/`. 
+Inside, `resource/` we need to create a config file called `spring.xml`, which tells Spring what to manage in the container. 
+Note that there are other ways to configure the project. 
+
+A sample `spring.xml` can be: 
+```
+    <bean id="dev1" class="com.telusko.Dev" autowire="byType" >
+        <property name="age" value="100" />
+    </bean>
+    <bean id="dev2" class="com.telusko.Dev" autowire="byType" primary="true">
+        <property name="age" value="200"/>
+    </bean>
+    <!--    <bean id="dev1" class="com.telusko.Dev">-->
+    <!--        <property name="computer" ref="desk1"></property>-->
+    <!--    </bean>-->
+    <!--    <bean id="dev1" class="com.telusko.Dev">-->
+    <!--&lt;!&ndash;        <constructor-arg ref="lap1" />&ndash;&gt;-->
+    <!--        <property name="computer" ref="lap1" /> &lt;!&ndash; this requires a setter method in Dev class (setter injection) &ndash;&gt;-->
+    <!--        <property name="age" value="12" />-->
+    <!--&lt;!&ndash;        <constructor-arg value="100" /> &ndash;&gt; &lt;!&ndash; constructor injection &ndash;&gt;-->
+    <!--    </bean>-->
+    <bean id="laptop1" class="com.telusko.Laptop" primary="true">
+    </bean>
+    <bean id="desktop1" class="com.telusko.Desktop">
+    </bean>
+```
+
+
+# Building a Web App Using Spring Boot
+
+The client can send a request to the application, which usually contains several layers - typically ***Controller***, ***Service***, and ***Repository***. 
+We can create a ***class*** to represent a Controller. 
+A method inside this Controller class can be responsible for handling requests arriving at a particular endpoint. 
+See the example below: 
+
+```
+@Controller //
+public class HomeController {
+
+    @RequestMapping("/")
+    @ResponseBody
+    public String greet() {
+        return "Test text for / endpoint by HomeController";
+    }
+
+    @RequestMapping("/about")
+    @ResponseBody
+    public String about() {
+        return "Test text for /about endpoint by HomeController";
+    }
+}
+```
+
+Here, HomeController has two methods, one for handling requests sent to "/" and the other "/about". 
+
+Note that `@Controller` by default will assume the return String values refer to file names (the names of the resources to send back to the client). Therefore, if we only want to return plain String text, then we need to use `@ResponseBody`.
