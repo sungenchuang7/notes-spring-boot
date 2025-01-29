@@ -180,3 +180,7 @@ public class HomeController {
 Here, HomeController has two methods, one for handling requests sent to "/" and the other "/about". 
 
 Note that `@Controller` by default will assume the return String values refer to file names (the names of the resources to send back to the client). Therefore, if we only want to return plain String text, then we need to use `@ResponseBody`.
+
+# JPA (Jakarta Persistence API)
+A specification for **mapping objects to relational database tables** (*ORM*). It's just a standard and needs to be implemented by frameworks such as `Hibernate`. It reduces the need for the programmers to think and write SQL queries in their Java source code, which is required when using `JDBC`. 
+
