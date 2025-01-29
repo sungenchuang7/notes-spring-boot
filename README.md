@@ -184,3 +184,6 @@ Note that `@Controller` by default will assume the return String values refer to
 # JPA (Jakarta Persistence API)
 A specification for **mapping objects to relational database tables** (*ORM*). It's just a standard and needs to be implemented by frameworks such as `Hibernate`. It reduces the need for the programmers to think and write SQL queries in their Java source code, which is required when using `JDBC`. 
 
+Ref: https://www.infoworld.com/article/2259807/what-is-jpa-introduction-to-the-java-persistence-api.html
+
+
